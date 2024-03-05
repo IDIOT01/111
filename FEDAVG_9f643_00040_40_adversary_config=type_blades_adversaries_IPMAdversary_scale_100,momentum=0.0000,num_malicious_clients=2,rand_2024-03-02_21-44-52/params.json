@@ -1,0 +1,52 @@
+{
+  "adversary_config": {
+    "scale": 100,
+    "type": "blades.adversaries.IPMAdversary"
+  },
+  "client_config": {
+    "lr": 1.0,
+    "momentum": 0.0
+  },
+  "dataset_config": {
+    "num_clients": 10,
+    "train_batch_size": 64,
+    "type": "FashionMNIST"
+  },
+  "evaluation_interval": 50,
+  "global_model": "cnn",
+  "num_cpus_for_driver": 2,
+  "num_cpus_per_worker": 0,
+  "num_gpus_for_driver": 0.3,
+  "num_gpus_per_worker": 0.3,
+  "num_malicious_clients": 2,
+  "num_remote_workers": 0,
+  "random_seed": 122,
+  "server_config": {
+    "aggregator": {
+      "type": "GeoMed"
+    },
+    "optimizer": {
+      "lr": 0.1,
+      "lr_schedule": [
+        [
+          0,
+          0.1
+        ],
+        [
+          1500,
+          0.1
+        ],
+        [
+          1501,
+          0.01
+        ],
+        [
+          2000,
+          0.01
+        ]
+      ],
+      "momentum": 0.0,
+      "type": "SGD"
+    }
+  }
+}
